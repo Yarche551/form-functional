@@ -1,0 +1,232 @@
+@font-face {
+    font-family: 'Nunito';
+    src: url('../fonts/Nunitoregular.woff');
+}
+
+@font-face {
+    font-family: 'NunitoExtrabold';
+    src: url('../fonts/Nunitoextrabold.woff');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+
+body {
+    background: linear-gradient(to right,
+            #ffffff 0%,
+            #ffffff 50%,
+            #F8F8FA 50%,
+            #F8F8FA 100%);
+}
+
+.section-form,
+.decoration {
+    width: 50%;
+    flex: 1;
+}
+
+.logo {
+    position: absolute;
+    top: 27px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main {
+    margin-top: 194px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.main-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 36px;
+    margin-bottom: 7px;
+}
+
+.main-text {
+    color: #636363;
+    font-size: 22px;
+    max-width: 435px;
+    margin-bottom: 42px;
+}
+
+label {
+    font-size: 16px;
+    color: #C6C6C4;
+    margin-bottom: 5px;
+}
+
+.form-element {
+    margin-bottom: 20px;
+}
+
+.input-name,
+.input-username,
+.input-email,
+.input-password,
+.input-repeat-password,
+.input-phone {
+    /* margin-bottom: 20px; */
+
+    width: 452px;
+    height: 35px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #C6C6C4;
+
+    font-size: 20px;
+}
+
+/* .input-repeat-password {
+    margin-bottom: 30px;
+
+    width: 452px;
+    height: 35px;
+    border-bottom: 1px solid #C6C6C4;
+    font-size: 20px;
+} */
+
+.input {
+    outline: none;
+    /* border: 1px solid red; */
+}
+
+.agree {
+    margin-right: 10px;
+}
+
+.checkbox-label {
+    color: #000000;
+}
+
+.form-checkbox {
+    margin-bottom: 40px;
+}
+
+.sign-up {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 44px;
+}
+
+.btn {
+    background: #DD3142;
+    border: none;
+    color: #FFFFFF;
+    font-size: 20px;
+    padding: 21px 68px 25px 68px;
+    border-radius: 40px;
+
+    cursor: pointer;
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 191px;
+}
+
+.link a {
+    text-decoration: none;
+    border: none;
+    font-size: 16px;
+    color: #636363;
+}
+
+
+/* правая часть */
+
+.decoration img {
+    margin-left: 11px;
+}
+
+
+/* popup */
+
+.popup {
+    display: none;
+
+    width: 500px;
+    height: 200px;
+
+    position: absolute;
+    z-index: 999999;
+    border: 1px solid #1f2023;
+
+    top: calc(50% - 100px);
+    left: calc(50% - 250px);
+    background: rgba(45, 45, 45, 0.76);
+
+    border-radius: 40px;
+}
+
+.popup-text {
+    display: inline-block;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.popup-button-block {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.popup-btn {
+    padding: 20px 50px;
+    border: none;
+    font-size: 20px;
+    background: #DD3142;
+    color: #fff;
+
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* работа с label-error */
+.error-message {
+    color: red;
+}
+
+#labelName-error {
+    display: none;
+    margin-top: 5px;
+}
+
+#labelUsername-error {
+    display: none;
+    margin-top: 5px;
+}
+
+#labelEmail-error {
+    display: none;
+    margin-top: 5px;
+}
+
+#labelPassword-error {
+    display: none;
+    margin-top: 5px;
+}
+
+#labelRepeatPassword-error {
+    display: none;
+    margin-top: 5px;
+}
+
+#labelCheckbox-error {
+    display: none;
+    margin-top: 5px;
+}
+
+.border-error {
+    border: 1px solid red;
+}
