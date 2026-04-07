@@ -115,6 +115,7 @@ label {
     display: flex;
     justify-content: center;
     margin-bottom: 44px;
+    margin-right: 130px;
 }
 
 .btn {
@@ -132,6 +133,7 @@ label {
     display: flex;
     justify-content: center;
     margin-bottom: 191px;
+    margin-right: 130px;
 }
 
 .link a {

@@ -1,53 +1,55 @@
 // работа с элементами
-let name = document.getElementById('name');
-let username = document.getElementById('username');
-let email = document.getElementById('email');
-let password = document.getElementById('password');
-let repeatPassword = document.getElementById('repeat-password');
-let checkbox = document.getElementById('checkbox');
+const name = document.getElementById('name');
+const username = document.getElementById('username');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const repeatPassword = document.getElementById('repeat-password');
+const checkbox = document.getElementById('checkbox');
 let flag = document.getElementById('flag');
 
 // лейблы к инпутам
-let labelName = document.getElementById('labelName-error');
-let labelUsername = document.getElementById('labelUsername-error');
-let labelEmail = document.getElementById('labelEmail-error');
-let labelPassword = document.getElementById('labelPassword-error');
-let labelRepeatPassword = document.getElementById('labelRepeatPassword-error');
-let labelCheckbox = document.getElementById('labelCheckbox-error');
+const labelName = document.getElementById('labelName-error');
+const labelUsername = document.getElementById('labelUsername-error');
+const labelEmail = document.getElementById('labelEmail-error');
+const labelPassword = document.getElementById('labelPassword-error');
+const labelRepeatPassword = document.getElementById('labelRepeatPassword-error');
+const labelCheckbox = document.getElementById('labelCheckbox-error');
 
 // для работы с popup и формой
-let popupButton = document.querySelector('.popup-btn');
-let popup = document.getElementById('popup');
-let myForm = document.getElementById('form');
+const popupButton = document.querySelector('.popup-btn');
+const popup = document.getElementById('popup');
+const myForm = document.getElementById('form');
 
 // для 6 пункта (из прошлой дз)
-let mainTitle = document.querySelector('.main-title');
-let fullNameBlock = document.querySelector('.form-name');
-let emailBlock = document.querySelector('.form-email');
-let repeatPasswordBlock = document.querySelector('.form-repeat-password');
-let link = document.querySelector('.link');
-let btn = document.getElementById('sign-up');
+const mainTitle = document.querySelector('.main-title');
+const fullNameBlock = document.querySelector('.form-name');
+const emailBlock = document.querySelector('.form-email');
+const repeatPasswordBlock = document.querySelector('.form-repeat-password');
+const link = document.querySelector('.link');
+const btn = document.getElementById('sign-up');
 
 
 // для localStorage
 let users = [];
 
+// Загружаем пользователей из localStorage при загрузке страницы
+if (localStorage.getItem('users')) {
+    users = JSON.parse(localStorage.getItem('users'));
+}
+
 // регистрация или вход
 let isLogin = false;
 
-
-
+// lk
 function userCabinet(user) {
     mainTitle.innerText = `Welcome, ${user.name}!`;
     btn.innerText = 'Exit';
-    btn.onclick = () => location.reload();
+    btn.addEventListener('click', () => location.reload());
 
-    document.querySelector('.main-text').remove();
-    username.remove();
-    password.remove();
-    username.remove();
-    name.remove();
-    password.remove();
+    document.querySelector('.main-text')?.remove();
+    username?.remove();
+    password?.remove();
+    name?.remove();
 
     // убрать все лейблы
     document.querySelectorAll('label').forEach(label => label.remove());
@@ -68,13 +70,11 @@ function switchToLogin() {
     checkbox.remove();
     labelCheckbox.remove();
     popup.remove();
-
-
     btn.innerText = 'Sign in';
 
     // флаг - вход
     if (btn.classList.contains('sign-in')) {
-        btn.onclick = function () {
+        btn.addEventListener('click', function () {
 
             // сброс ошибок
             labelUsername.style.display = 'none';
@@ -111,9 +111,8 @@ function switchToLogin() {
                 password.classList.add('border-error');
                 return;
             }
-
             userCabinet(user);
-        }
+        });
     }
 }
 
@@ -125,36 +124,36 @@ function switchToRegistration() {
     location.reload();
 }
 
-name.onkeydown = (e) => {
+name.addEventListener("keydown", (e) => {
     let number = parseInt(e.key);
     if (!isNaN(number)) {
-        return false;
+        e.preventDefault();
     }
-}
+});
 
-username.onkeydown = (e) => {
+username.addEventListener("keydown", (e) => {
     if (e.key === '.' || e.key === ',') {
-        return false;
+        e.preventDefault();
     }
-}
+});
 
 
-flag.onchange = () => {
+flag.addEventListener("change", () => {
     if (!flag.checked) {
         console.log('Не Согласен');
     } else {
         console.log('Согласен');
     }
-}
+});
 
 
-link.onclick = function () {
+link.addEventListener('click', function () {
     if (isLogin === false) {
         switchToLogin();
     } else {
         switchToRegistration();
     }
-}
+});
 
 
 popupButton.addEventListener('click', function () {
@@ -272,7 +271,4 @@ btn.addEventListener('click', () => {
         localStorage.setItem('users', JSON.stringify(users));
         console.log(users);
     }
-
-
-
 });
